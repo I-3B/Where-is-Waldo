@@ -1,0 +1,72 @@
+header {
+    width: 100%;
+    background-color: rgba(0, 68, 255, 0.308);
+    position: fixed;
+    height: fit-content;
+    color: aliceblue;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: warp;
+}
+header nav {
+    padding-left: 1em;
+    width: 28%;
+    display: flex;
+}
+header nav div {
+    margin: auto 0.5em;
+    border-radius: 2px;
+    width: fit-content;
+}
+header nav div img {
+    cursor: pointer;
+    margin: 0.25em auto;
+    max-width: 3em;
+}
+header nav div img:hover {
+    transition: 0.25s;
+    transform: scale(1.1);
+}
+#timer {
+    line-height: 60px;
+    width: 28%;
+    text-align: center;
+    font-size: 2em;
+    margin: auto;
+}
+#characters {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: row-reverse;
+    width: 28%;
+}
+.character-preview {
+    cursor: pointer;
+    margin: 0 1em;
+}
+.character-preview img {
+    max-width: 3em;
+}
+
+.character-preview:hover > img {
+    transition: 0.1s;
+    transform: scale(5) translateY(2em);
+}
+.found {
+    color: yellowgreen;
+}
+.found img {
+    filter: brightness(0.6);
+}
+@media screen and (max-width: 480px) {
+    .character-preview img {
+        max-width: 2em;
+    }
+    .character-preview {
+        margin: 0 0.1em;
+    }
+}

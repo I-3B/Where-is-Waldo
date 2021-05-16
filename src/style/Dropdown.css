@@ -1,0 +1,31 @@
+#Dropdown {
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 12em;
+    position: absolute;
+    z-index: 2;
+    border-radius: 20px;
+    overflow: hidden;
+    animation-fill-mode: forwards;
+    animation-duration: 0.4s;
+    animation-name: drop;
+}
+.choice {
+    cursor: pointer;
+    padding: 0.5em 0.25em;
+    padding-left: 1em;
+    background-color: aliceblue;
+}
+.choice:hover {
+    filter: brightness(0.95);
+}
+@keyframes drop {
+    0% {
+        width: 6em;
+        min-height: 0em;
+        max-height: 0em;
+    }
+    100% {
+        width: 12em;
+    }
+}

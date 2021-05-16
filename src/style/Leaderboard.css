@@ -1,0 +1,76 @@
+#Leaderboard {
+    width: 100%;
+    color: aliceblue;
+    padding: 1em;
+    padding-top: 65px;
+    height: fit-content;
+}
+#Leaderboard nav {
+    margin-top: 1em;
+    width: 100%;
+    display: grid;
+    font-size: 1.5em;
+    grid-template-columns: repeat(3, 1fr);
+}
+#Leaderboard nav div {
+    border-radius: 30px 30px 2px 2px;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5em 1em;
+}
+#Leaderboard nav div:hover {
+    background-color: #333;
+}
+.active-table {
+    border-collapse: collapse;
+    background-color: #0a7afa !important;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow: hidden;
+}
+
+td,
+th {
+    width: 33%;
+    text-align: center;
+    border: 1px solid #111;
+    padding: 0.25em;
+}
+th {
+    font-size: 1.5em;
+}
+th:first-child {
+    border-radius: 5px 0 0 0;
+}
+th:last-child {
+    border-radius: 0 5px 0 0;
+}
+th:first-child,
+td:first-child {
+    width: 5%;
+}
+table div {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    padding: 0.5em 1em;
+}
+tr {
+    animation-name: appear;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    background-color: #232323;
+}
+tr:nth-child(even) {
+    background-color: #333;
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

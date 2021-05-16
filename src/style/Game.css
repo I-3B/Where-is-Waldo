@@ -1,0 +1,27 @@
+#Game {
+    padding: 0em;
+    margin: 0em;
+    height: fit-content;
+}
+#game-image {
+    margin: 0em;
+    padding: 0em;
+    cursor: pointer;
+    min-width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+#notification {
+    cursor: default;
+    border-radius: 25px;
+    position: fixed;
+    top: 12vh;
+    left: calc(50vw - 200px / 2);
+    color: aliceblue;
+    font-size: 25px;
+    text-align: center;
+    width: 200px;
+    padding: 0.25em 0.5em;
+    z-index: 5;
+    transition: 0.5s;
+}
