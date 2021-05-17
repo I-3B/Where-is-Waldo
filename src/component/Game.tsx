@@ -20,11 +20,13 @@ function Game(props: any) {
         setImageLoaded(true);
         setNotification(<></>);
         if (!playedBefore) {
-            showNotification(
-                'Find the characters who are displayed in the header in the shortest time possible.',
-                '#0a7afa',
-                5000
-            );
+            setTimeout(() => {
+                showNotification(
+                    'Find the characters who are displayed in the header in the shortest time possible.',
+                    '#0a7afa',
+                    5000
+                );
+            }, 100);
         }
         event.target.style.opacity = '1';
         props.imageIsLoaded();
@@ -195,6 +197,7 @@ function Game(props: any) {
     }
     useEffect(() => {
         if (!imageLoaded) showNotification('Loading...', '#ffc802', -1);
+        else setNotification(<></>);
     }, [imageLoaded]);
     useEffect(() => {
         if (charactersNames.length === 0) gameOver();
