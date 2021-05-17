@@ -11,11 +11,13 @@ function Game(props: any) {
         .firestore()
         .collection(IMAGE_NAME)
         .doc('characters');
+    const [imageLoaded, setImageLoaded] = useState(false);
     const [charactersNames, setCharactersNames] = useState(props.characters);
     const [notification, setNotification] = useState(<></>);
     const [dropdownHandler, setDropdownHandler] = useState(<></>);
 
     function startGame(event: any) {
+        setImageLoaded(true);
         setNotification(<></>);
         if (!playedBefore) {
             showNotification(
@@ -192,8 +194,8 @@ function Game(props: any) {
         props.gameOver();
     }
     useEffect(() => {
-        showNotification('Loading...', '#ffc802', -1);
-    }, []);
+        if (!imageLoaded) showNotification('Loading...', '#ffc802', -1);
+    }, [imageLoaded]);
     useEffect(() => {
         if (charactersNames.length === 0) gameOver();
     }, [JSON.stringify(charactersNames)]);

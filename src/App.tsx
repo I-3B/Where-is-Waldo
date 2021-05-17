@@ -6,6 +6,7 @@ import SelectLevel from './component/SelectLevel';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import Leaderboard from './component/Leaderboard';
+import uniqid from 'uniqid';
 interface gameData {
     addedIn: number;
     gameStartedIn: number;
@@ -78,15 +79,15 @@ function App() {
             const recordedAt = data.gameEndedIn;
             const difficulty = data.difficulty;
 
-            await leaderBoardRef
-                .doc(difficulty)
-                .update({ [name]: { duration, recordedAt } });
+            await leaderBoardRef.doc(difficulty).update({
+                [name]: { duration, recordedAt, ID: sessionID },
+            });
         } else alert("couldn't record result to leaderboard");
     }
     async function nameSubmitted(event: any) {
         event.preventDefault();
-        let name = event.target?.querySelector('#name-input').value;
-        name = name.replaceAll(' ', '_');
+        let name: string = event.target?.querySelector('#name-input').value;
+        name = name.trim();
         const submit = event.target?.querySelector('#submit-button');
         submit.disabled = true;
         if (event.target)
@@ -133,7 +134,7 @@ function App() {
             <Leaderboard
                 data={difficulties}
                 showTable={startIn}
-                at={'#' + name + startIn}
+                at={'#ID' + sessionID}
             ></Leaderboard>
         );
     }
@@ -188,7 +189,7 @@ function App() {
 }
 
 const uniqueId = () => {
-    return Math.ceil(Math.random() * Date.now())
+    return Math.ceil(Math.random() * Math.random() * Date.now())
         .toPrecision(16)
         .toString()
         .replace('.', '')

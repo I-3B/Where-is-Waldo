@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '../style/Leaderboard.css';
 import { HH_MM_SS } from '../App';
 interface data {
+    ID: string;
     name: string;
     duration: number;
     recordedAt: number;
@@ -21,7 +22,7 @@ function Leaderboard(props: any) {
             dataArr.map((e) => Object.assign(e, { rank: itr++ }));
             dataArr.forEach((row) => {
                 rowsArr.push(
-                    <tr id={row.name + difficulty} key={row.name + difficulty}>
+                    <tr id={'ID' + row.ID} key={row.name + difficulty}>
                         <td>{row.rank}</td>
                         <td>{row.name}</td>
                         <td>{HH_MM_SS(row.duration / 1000)}</td>

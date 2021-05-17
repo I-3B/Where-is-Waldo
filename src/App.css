@@ -9,7 +9,7 @@
     width: 100%;
     min-height: 100vh;
     background-color: #1a1a1a;
-    font-family: cursive;
+    font-family: cursive, sans-serif;
 }
 form {
     transition: 0.25s;
@@ -54,4 +54,11 @@ input[type='submit'] {
     display: block;
     margin: 1em auto;
     cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    form {
+        left: calc(50vw - 15em / 2);
+        width: 15em;
+        height: 10em;
+    }
 }
