@@ -64,7 +64,7 @@ function Game(props: any) {
         });
     }
     async function dropdownClicked(character: string, x: number, y: number) {
-        showNotification('Checking...', '#F07626', -1);
+        showNotification('Checking...', '#ffc802', -1);
         const [coordinateX, coordinateY] = getCoordinateFromPixels(x, y);
         if (coordinateX && coordinateY) {
             setDropdownHandler(<></>);
@@ -197,7 +197,10 @@ function Game(props: any) {
     }
     useEffect(() => {
         if (!imageLoaded) showNotification('Loading...', '#ffc802', -1);
-        else setNotification(<></>);
+        else
+            setTimeout(() => {
+                setNotification(<></>);
+            });
     }, [imageLoaded]);
     useEffect(() => {
         if (charactersNames.length === 0) gameOver();

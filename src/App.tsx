@@ -16,7 +16,7 @@ interface gameData {
 function App() {
     const [gameStarted, setGameStarted] = useState(false);
     const [gameEnded, setGameEnded] = useState(false);
-    const [sessionID, setSessionID] = useState(uniqueId());
+    const [sessionID, setSessionID] = useState(uniqid());
     const [main, setMain] = useState(
         <SelectLevel onClick={levelSelected}></SelectLevel>
     );
@@ -188,13 +188,6 @@ function App() {
     );
 }
 
-const uniqueId = () => {
-    return Math.ceil(Math.random() * Math.random() * Date.now())
-        .toPrecision(16)
-        .toString()
-        .replace('.', '')
-        .toString();
-};
 export function HH_MM_SS(inSeconds: number) {
     let hours: any = Math.floor(inSeconds / 3600);
     let minutes: any = Math.floor((inSeconds - hours * 3600) / 60);
